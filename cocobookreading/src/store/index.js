@@ -3,13 +3,11 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+import book from './modules/book'
+import getters from './getters'
 export default new Vuex.Store({
-  state: {
+  modules:{
+    book
   },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
+  getters
 })

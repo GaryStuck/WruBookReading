@@ -1,24 +1,18 @@
 # cocobookreading
 
-## Project setup
-```
-npm install
-```
+## 代码需谨慎，木业花落之处
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+-分页算法，全文搜索算法，引入Web字体，主题设计
 
-### Compiles and minifies for production
-```
-npm run build
-```
+-离线存储设计：localstorage+IndexedDB
 
-### Lints and fixes files
-```
-npm run lint
-```
+-实现复杂手势+交互操作
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+·利用vuex+mixin实现组件解耦，复用
+
+-利用es6优雅的实现数据结构变化
+
+-对接其他平台
+
+-npm i -g @vue/devtools
+vue-devtools
