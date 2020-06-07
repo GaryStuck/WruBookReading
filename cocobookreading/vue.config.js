@@ -1,5 +1,35 @@
 const path = require('path')
 module.exports = {
+  // webpack-dev-server 相关配置
+  devServer: {
+    // open: process.platform === 'darwin',
+    host: 'localhost',
+    port: 8080,
+    hot:true,
+    https: false,
+    open:true,
+    // hotOnly: false,
+    // overlay: {
+    //   warnings: false,
+    //   errors: false
+    // },
+    proxy:'http://localhost:8081',
+    // proxy: {
+    //   '/ebook': {
+    //     // 目标 API 地址
+    //     target: "http://localhost:8081",
+    //     // target: process.env.VUE_APP_URL,
+    //     // 如果要代理 websockets
+    //     ws: true,
+    //     changeOrigin: true, // 允许websockets跨域
+    //     pathRewrite: {
+    //       '/': ''
+    //     }
+    //   }
+    // },
+    // 代理转发配置，用于调试环境
+    disableHostCheck: true,
+  },
   publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
   // 输出文件目录
   outputDir: 'dist',
@@ -64,31 +94,4 @@ module.exports = {
     modules: false
   },
   parallel: require('os').cpus().length > 1,
-  // webpack-dev-server 相关配置
-  devServer: {
-    open: process.platform === 'darwin',
-    host: '0.0.0.0',
-    port: 8080,
-    hot:true,
-    https: false,
-    hotOnly: false,
-    overlay: {
-      warnings: false,
-      errors: false
-    },
-    proxy: {
-      '/api': {
-        // 目标 API 地址
-        target: process.env.VUE_APP_URL,
-        // 如果要代理 websockets
-        ws: false,
-        changeOrigin: true, // 允许websockets跨域
-        pathRewrite: {
-          '/api/proxy': ''
-        }
-      }
-    },
-    // 代理转发配置，用于调试环境
-    disableHostCheck: true,
-  }
 }
