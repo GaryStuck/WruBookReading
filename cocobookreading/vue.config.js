@@ -4,29 +4,28 @@ module.exports = {
   devServer: {
     // open: process.platform === 'darwin',
     host: 'localhost',
-    port: 8080,
+    port: 9001,
     hot:true,
     https: false,
     open:true,
-    // hotOnly: false,
-    // overlay: {
-    //   warnings: false,
-    //   errors: false
-    // },
-    proxy:'http://localhost:8081',
-    // proxy: {
-    //   '/ebook': {
-    //     // 目标 API 地址
-    //     target: "http://localhost:8081",
-    //     // target: process.env.VUE_APP_URL,
-    //     // 如果要代理 websockets
-    //     ws: true,
-    //     changeOrigin: true, // 允许websockets跨域
-    //     pathRewrite: {
-    //       '/': ''
-    //     }
-    //   }
-    // },
+    hotOnly: false,
+    overlay: {
+      warnings: false,
+      errors: false
+    },
+    proxy: {
+      '/': {
+        // 目标 API 地址
+        target: "http://localhost:3000",
+        // target: process.env.VUE_APP_URL,
+        // 如果要代理 websockets
+        ws: true,
+        changeOrigin: true, // 允许websockets跨域
+        pathRewrite: {
+          '/': ''
+        }
+      }
+    },
     // 代理转发配置，用于调试环境
     disableHostCheck: true,
   },
@@ -76,7 +75,8 @@ module.exports = {
           '@': path.resolve(__dirname, './src'),
           '@c': path.resolve(__dirname, './src/components'),
           '@p': path.resolve(__dirname, './src/pages'),
-          '@u': path.resolve(__dirname, './src/utils')
+          '@u': path.resolve(__dirname, './src/utils'),
+          '@v': path.resolve(__dirname, './src/views'),
         } // 别名配置
       }
     })

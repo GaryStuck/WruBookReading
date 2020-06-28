@@ -6,7 +6,6 @@
 
 <script>
 import EbookReader from "@/components/ebook/EbookReader.vue";
-
 export default {
     components:{
         EbookReader
