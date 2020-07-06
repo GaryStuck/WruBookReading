@@ -134,9 +134,11 @@ export default {
             this.$http.post('/user',{
               name:this.loginForm.username,
               age:this.loginForm.password
-            }).then(e=>{
+            }).then(res=>{
               this.loading = false
-              this.$message({type:'success',message: 'success'})
+              this.$store.dispatch('setToken',res.resultData.token)
+              this.$message({type:'success',message: 'login success'})
+              this.$router.push({path:'epub',params:{username:this.$store.state.user.userName}})
             })
         } else {
           this.$message({type: 'error',message:'请正确填写信息！'})

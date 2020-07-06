@@ -1,7 +1,8 @@
 const user = {
   state: {
     userName: '',
-    date: null
+    date: null,
+    token:''
   },
   mutations: {
     'SET_USERNAME': (state, userName) => {
@@ -9,6 +10,9 @@ const user = {
     },
     'SET_DATE': (state, date) => {
       return state.date = date
+    },
+    'SET_TOKEN': (state, token) => {
+      return state.token = token
     }
   },
   actions: {
@@ -17,6 +21,9 @@ const user = {
     },
     setDate:({commit,state},date)=>{
       return commit('SET_DATE',date)
+    },
+    setToken:({commit,state},token)=>{
+      return commit('SET_TOKEN',token)
     }
   }
 }

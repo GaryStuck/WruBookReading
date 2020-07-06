@@ -34,12 +34,22 @@
     //   ...mapGetters(['test']),
     //   ...fns(['a', 'b'])
     // },
-    // mounted() {
-    //   this.$store.dispatch('setTest', 9).then(() => {
-    //     console.log(this.test)
-    //   })
-    //   console.log(this.a,this.b)
-    // },
+    beforeMount() {
+      if (this.$store.state.user.token&&this.$route.path.toString()!=='epub') {
+        this.$router.replace({path:'epub',params:{username:this.$store.state.user.userName}}).catch(e=>(e) )
+      }else {
+        this.$router.push({path:'login'})
+      }
+    },
+    mounted() {
+    },
+    beforeUpdate() {
+      if (this.$store.state.user.token) {
+        this.$router.replace({path:'epub',params:{username:this.$store.state.user.userName}})
+      }else {
+        this.$router.push({path:'login'})
+      }
+    }
     // methods: {
     //   handleX: function () {
     //     const i = {num: 1};

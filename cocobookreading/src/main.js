@@ -8,6 +8,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 import '@u'
 import install from './api/ajax'
 
+
+
 Vue.use(install)
 Vue.config.productionTip = false
 new Vue({
